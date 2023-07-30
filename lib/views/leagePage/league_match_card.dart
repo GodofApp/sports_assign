@@ -18,16 +18,7 @@ class LeagueMatchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    String team1Name  = matchController.matchModel.value.teams![matchController.matchModel.value.matchdetail!.teamAway!]!.nameShort!;
-    String team2Name  = matchController.matchModel.value.teams![matchController.matchModel.value.matchdetail!.teamHome!]!.nameShort!;
-    DateTime tempDate = DateFormat("dd/MM/yyyy").parse(matchController.matchModel.value.matchdetail!.match!.date!);
 
-    String date = DateFormat.yMMMMEEEEd().format(tempDate);
-
-    DateTime time = DateFormat("HH:mm").parse(matchController.matchModel.value.matchdetail!.match!.time!);
-
-    // Format the DateTime object to the desired time format
-    String formattedTime = DateFormat("h:mm a").format(time);
 
     return InkWell(
       onTap: () async {
@@ -141,7 +132,7 @@ class LeagueMatchCard extends StatelessWidget {
                                   ),
                                   // width: 100,
                                   child: TextLanCommon(
-                                    date,
+                                    matchController.matchDate,
                                     style: const TextStyle(
                                         color:
                                         AppColors.dark_blue_grey_three,
@@ -168,7 +159,7 @@ class LeagueMatchCard extends StatelessWidget {
                                   ),
                                   // width: 100,
                                   child: TextLanCommon(
-                                    "Time :$formattedTime",
+                                    "Time :${matchController.matchTime}",
                                     style: const TextStyle(
                                         color:
                                         AppColors.dark_blue_grey_three,
@@ -224,7 +215,7 @@ class LeagueMatchCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             TextLanCommon(
-                              team1Name,
+                              matchController.team1Name,
                               // 'Royal-Challengers-Bangalore-Women',
                               style: const TextStyle(
                                   color: AppColors.darkThree,
@@ -244,7 +235,7 @@ class LeagueMatchCard extends StatelessWidget {
                                 )),
 
                             TextLanCommon(
-                              team2Name,
+                              matchController.team2Name,
                               textAlign: TextAlign.end,
                               // overflow: TextOverflow.ellipsis,
                               style: const TextStyle(

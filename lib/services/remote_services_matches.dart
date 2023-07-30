@@ -13,12 +13,12 @@ class RemoteServicesMatches{
   static var client = http.Client();
 
 
-  static Future<MatchModel?> getMatchDetails() async {
+  static Future<MatchModel?> getMatchDetails(String url) async {
     // final headers = getLoginHeaders();
 
     try {
 
-      var response = await client.get(Uri.parse(Api.baseUrl));
+      var response = await client.get(Uri.parse(url));
 
       if (response.statusCode == 200) {
         var jsonString = response.body;

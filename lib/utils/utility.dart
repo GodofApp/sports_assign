@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_overlay_loader/flutter_overlay_loader.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/src/snackbar/snackbar.dart';
 
 import '../color_constants.dart';
@@ -36,4 +37,22 @@ void showLoader(BuildContext context) {
       themeData: Theme.of(context).copyWith(
           colorScheme:
           ColorScheme.fromSwatch().copyWith(secondary: Colors.green)));
+}
+
+
+Widget getFadedLine() {
+  return Container(
+      width: Get.width,
+      height: 0.5,
+      decoration: const BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment(-0.9, -0.0),
+              end: Alignment(0.9, 0.0),
+              colors: [
+                Color(0x00101423),
+                Color(0xff333d63),
+                Color(0xff333d63),
+                Color(0xff333d63),
+                Color(0x00101423)
+              ])));
 }

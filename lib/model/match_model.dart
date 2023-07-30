@@ -577,12 +577,14 @@ class Team {
 }
 
 class Player {
+  String? teamId;
   String? position;
   String? nameFull;
   bool? iskeeper;
   Batting? batting;
   Bowling? bowling;
   bool? iscaptain;
+  String? teamShortName;
 
   Player({
     this.position,
@@ -591,6 +593,8 @@ class Player {
     this.batting,
     this.bowling,
     this.iscaptain,
+    this.teamId,
+    this.teamShortName
   });
 
   factory Player.fromJson(Map<String, dynamic> json) => Player(
